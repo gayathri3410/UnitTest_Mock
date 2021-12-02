@@ -35,17 +35,10 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '**/*.sln'
-    Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-
 - task: NuGetCommand@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/5a0e13a0-a88a-48f4-a0b6-022ab6516b95'
-
+    allowPackageConflicts: true
