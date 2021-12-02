@@ -1,7 +1,7 @@
 # ASP.NET Core
 
 # Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
+
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 # the build will trigger on any changes to the master branch
@@ -15,10 +15,10 @@ pool:
 # just the build configuration is defined, in this case we are building Release packages
 variables:
   buildConfiguration: 'Release'
-#The build has 3 seperate tasks run under 1 step
+
 steps:
 
-# The first task is the dotnet command build, pointing to our csproj file
+
     
 - task: NuGetToolInstaller@1
   inputs:
@@ -30,15 +30,15 @@ steps:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: 'testf'
+    vstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/f3a4f9c7-558b-47ff-a474-eb5a8d5ed068'
 
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
+
 - task: NuGetCommand@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'testf'
-    allowPackageConflicts: true
+    publishVstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/f3a4f9c7-558b-47ff-a474-eb5a8d5ed068'
