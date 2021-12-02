@@ -45,7 +45,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'TestProject/TestProject.csproj'
+    SourceFolder: '$(agent.builddirectory)'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
