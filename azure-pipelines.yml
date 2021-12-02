@@ -24,13 +24,12 @@ steps:
   inputs:
     versionSpec: 
     checkLatest: true
-
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/062270f9-528f-4330-abb8-94f49794f61a'
+    vstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/5a0e13a0-a88a-48f4-a0b6-022ab6516b95'
 
 - task: VSBuild@1
   inputs:
