@@ -29,6 +29,7 @@ steps:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
+    publishVstsFeed: 'samplef'
     vstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/5a0e13a0-a88a-48f4-a0b6-022ab6516b95'
 
 - task: VSBuild@1
@@ -38,6 +39,8 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'push'
+    feedsToUse: 'select'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
+    publishVstsFeed: 'samplef'
     publishVstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/5a0e13a0-a88a-48f4-a0b6-022ab6516b95'
