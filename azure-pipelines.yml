@@ -9,11 +9,6 @@ trigger:
   branches:
     include:
     - master
-schedules:
-- cron: "* * * * *"
-  branches:
-    include:
-    - master
   always: true
 name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r) 
 
