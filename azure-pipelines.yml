@@ -6,7 +6,16 @@
 
 # the build will trigger on any changes to the master branch
 trigger:
-- master
+  branches:
+    include:
+    - master
+schedules:
+- cron: "* * * * *"
+  branches:
+    include:
+    - master
+  always: true
+name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r) 
 
 # the build will run on a Microsoft hosted agent, using the lastest Windows VM Image
 pool:
