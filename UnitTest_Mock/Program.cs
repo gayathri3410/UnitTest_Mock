@@ -13,6 +13,7 @@ namespace UnitTest_Mock
     {
         public static void Main(string[] args)
         {
+            // add new line
             CreateHostBuilder(args).Build().Run();
         }
 
