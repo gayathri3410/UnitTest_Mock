@@ -9,8 +9,7 @@ trigger:
   branches:
     include:
     - master
-  always: true
-name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r) 
+
 
 # the build will run on a Microsoft hosted agent, using the lastest Windows VM Image
 pool:
