@@ -31,7 +31,7 @@ steps:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/f3a4f9c7-558b-47ff-a474-eb5a8d5ed068'
+    vstsFeed: '7ac91850-fcee-4aaa-834c-64a97beb6751/eb22beec-69f7-48d8-91a2-cd44e8b4e5a2'
 
 - task: VSBuild@1
   inputs:
@@ -42,7 +42,7 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'b1057522-d6b8-499a-bbbc-15f1cabfc38c/f3a4f9c7-558b-47ff-a474-eb5a8d5ed068'
+    publishVstsFeed: '7ac91850-fcee-4aaa-834c-64a97beb6751/eb22beec-69f7-48d8-91a2-cd44e8b4e5a2'
 
 - task: CopyFiles@2
   inputs:
